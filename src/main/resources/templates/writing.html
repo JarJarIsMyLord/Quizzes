@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Writing Question</title> 
+    </head>
+    <body>
+        <h1>Add writing question</h1>
+        <a href="short">Change to short question</a>
+        <form method="POST" th:action="@{/add/writing}">
+            <label for="question">Question:</label><br>
+            <textarea name="question" id="question" cols="40" rows="3"></textarea><br>
+            <label for="answer">Answer:</label><br>
+            <input type="text" name="answer" id="answer"><br>
+            <input type="submit" value="Add question">
+        </form>
+        <form method="POST" th:action="@{/add/submit}">
+            <input type="submit" value="Submit quiz">
+        </form>
+    </body>
+</html>

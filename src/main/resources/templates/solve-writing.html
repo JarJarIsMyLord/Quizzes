@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Quiz</title> 
+    </head>
+    <body>
+        <b><p th:text="${question}"></p></b>
+        <form method="POST" th:action="${questionId}">
+            <input type="text" name="answer">
+            <input type="submit" value="Next">
+        </form>
+    </body>
+</html>

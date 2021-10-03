@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>New Quiz</title> 
+    </head>
+    <body>
+        <h1>Set title and description</h1>
+        <form method="POST" th:action="@{/add}">
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" ><br>
+            <label for="description">Description:</label><br>
+            <textarea name="description" id="description" cols="40" rows="6"></textarea><br>
+            <input type="submit" value="Next">
+        </form>
+    </body>
+</html>

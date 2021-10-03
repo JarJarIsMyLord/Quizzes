@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Account</title>
+        <style>
+            table, td, th {border: 2px black solid; border-collapse: collapse;}
+            .data {text-align: center;}
+        </style>
+    </head>
+    <body>
+        <h1>Account</h1>
+        <h2 th:text="${username}"></h2>
+        <p><a href="account/logout">Logout</a></p>
+        <h3>Statistics</h3>
+        <table>
+            <thead style="background-color: lightsteelblue;">
+                <tr>
+                    <th>Quiz</th>
+                    <th>Correct answers</th>
+                    <th>Wrong answers</th>
+                    <th>All answers</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="quiz_stats : ${stats}" th:object="${quiz_stats}">
+                    <td th:text="*{quiz.getTitle()}"></td>
+                    <td class="data" th:text="*{correctAnswers}"></td>
+                    <td class="data" th:text="*{wrongAnswers}"></td>
+                    <td class="data" th:text="*{correctAnswers}+*{wrongAnswers}"></td>
+                </tr>
+            </tbody>
+            <tfoot style="background-color: gainsboro;">
+                <tr>
+                    <th style="text-align: left;">Summary</th>
+                    <td class="data" th:text="${allCorrectAnswers}"></td>
+                    <td class="data" th:text="${allWrongAnswers}"></td>
+                    <td class="data" th:text="${allCorrectAnswers}+${allWrongAnswers}"></td>
+                </tr>
+            </tfoot>
+        </table>
+    <p><a href="/">Main page</a></p>
+    </body>
+</html>

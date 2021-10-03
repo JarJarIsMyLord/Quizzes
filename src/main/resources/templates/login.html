@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Log in</title>
+    </head>
+    <body>
+        <h1>Log in or Register</h1>
+        <form method="POST" th:action="@{/login}">
+            <label for="username">Username:</label><br>
+            <input name="username" id="username" type="text"/><br>
+            <label for="password">Password:</label><br>
+            <input name="password" id="password" type="password"/><br>
+            <input type="submit" name="login" value="Log in"/> <input type="submit" name="register" value="Register"/>
+        </form>
+        <p style="color: crimson;" th:if="${register_error}">There is already an account with such username.</p>
+        <p style="color: crimson;" th:if="${login_error}" >Wrong username or password.</p>
+        <p style="color: crimson;" th:if="${password_error}">Password can't be blank.</p>
+    </body>
+</html>

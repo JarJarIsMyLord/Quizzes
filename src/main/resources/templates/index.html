@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+    </head>
+    <body>
+        <span style="right: 0px"><a href="account">Account</a></span>
+        <h1>Quizzes</h1>
+        <a href="add">Add quiz</a>
+        <div th:each="quiz : ${quizzes}" th:object="${quiz}">
+            <a th:href="*{id}+@{/1}"><h3 th:text="*{title}"></h3></a>
+            <div th:text="*{description}"></div>
+            <i th:text="*{author}"></i>
+        </div>
+    </body>
+</html>
