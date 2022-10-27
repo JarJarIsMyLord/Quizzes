@@ -21,6 +21,8 @@ public class LoginController {
 	
 	@GetMapping
 	public String show() {
+		if(currentUser.getUsername()!=null)
+			return "redirect:/";
 		return "login";
 	}
 	
@@ -35,8 +37,8 @@ public class LoginController {
 			return "login";
 		}
 		User user = new User(username, password);
-		currentUser.setUser(user);
 		userRepo.save(user);
+		currentUser.setUser(userRepo.findByUsername(username));
 		return "redirect:/";
 	}
 	

@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <title>Results</title> 
-    </head>
-    <body>
-        <h1>Results</h1>
-        <div th:each="q : ${questions}" th:with="i = ${questions.indexOf(q)}">
-            <b><p th:text="${q}"></p></b>
-            <p>
-                Your answer:
-                <span th:if="${answers.get(i)}==${correctAnswers.get(i)}" th:text="${answers.get(i)}" style="color: limegreen;"></span>
-                <span th:unless="${answers.get(i)}==${correctAnswers.get(i)}" th:text="${answers.get(i)}" style="color: crimson;"></span>
-                Correct answer:
-                <span th:text="${correctAnswers.get(i)}"></span>
-            </p>
-        </div>
-        <a href="/">Exit</a>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+</head>
+
+<body>
+    <h1>Results</h1>
+    <div th:each="q : ${questions}" th:with="i = ${questions.indexOf(q)}">
+        <b>
+            <p th:text="${q}"></p>
+        </b>
+        <p>
+            Your answer:
+            <span th:if="${answers.get(i)}==${correctAnswers.get(i)}" th:text="${answers.get(i)}"
+                style="color: limegreen;"></span>
+            <span th:unless="${answers.get(i)}==${correctAnswers.get(i)}" th:text="${answers.get(i)}"
+                style="color: crimson;"></span>
+            <br>Correct answer:
+            <span th:text="${correctAnswers.get(i)}"></span>
+        </p>
+    </div>
+    <a href="/">Exit</a>
+</body>
+
 </html>
